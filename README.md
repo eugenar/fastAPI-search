@@ -1,4 +1,4 @@
-# Backend Take-Home Template
+# FastAPI for search
 
 Welcome to the **Backend Take-Home** assignment repository! This README describes how to install and run Docker so that you can spin up the necessary services (e.g., PostgreSQL, Elasticsearch, and others) for this project. This template contains boilerplate servers in both TypeScript (Express.js) and Python (FastAPI) that demonstrate how to connect to the services.
 
@@ -159,7 +159,9 @@ uvicorn src.main:app --reload --port 3000
 
 After starting the server, you should be able to check `localhost:3000/health` to see if the server is running and the db connection is working.
 
-You can also check `localhost:3000/search` to see if the connection to Elasticsearch is working.
+You can also check `localhost:3000/health` to see if the connection to database and Elasticsearch is working, and the required tables, triggers, and indices exist.
+
+Access Swagger UI to test `localhost:3000/docs`
 
 # Troubleshooting
 
@@ -181,3 +183,12 @@ You can also check running volumes with:
 docker volume ls
 ```
 and terminate any hanging volumes that match the name of the volume in the docker-compose.yml file.
+
+# Mapping nutrient -> nutrient category
+
+Based on https://fdc.nal.usda.gov/Foundation_Foods_Documentation
+
+Energy (Atwater Specific Factors) -> calories (more accurate than Energy (Atwater General Factors))
+Adjusted Protein -> protein (indicated by the % Daily Value on labels)
+Total fat (NLEA) -> fat
+Carbohydrate, by summation -> carbs (more accurate then Carbohydrate, by difference)

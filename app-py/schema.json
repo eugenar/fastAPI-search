@@ -1,0 +1,10 @@
+[
+  {
+    "database": "bevel",
+    "index": "food",
+    "nodes": {
+      "table": "food",
+      "columns": ["id", "name"]
+    }
+  }
+]

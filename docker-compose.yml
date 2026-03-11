@@ -1,8 +1,7 @@
-version: '3.8'
 services:
   # 1) Elasticsearch
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.6.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.3.1
     container_name: es_local
     environment:
       - discovery.type=single-node
@@ -19,7 +18,7 @@ services:
 
   # 2) Kibana
   kibana:
-    image: docker.elastic.co/kibana/kibana:8.6.2
+    image: docker.elastic.co/kibana/kibana:9.3.1
     container_name: kibana_local
     depends_on:
       - elasticsearch
@@ -40,16 +39,35 @@ services:
       POSTGRES_DB: bevel
       POSTGRES_USER: bevel
       POSTGRES_PASSWORD: password
+    command: ["postgres", "-c", "wal_level=logical"] # Enable logical replication for pgsync
     ports:
       - "54328:5432"
     volumes:
-      - bevel_pgdata:/var/lib/postgresql/data
+      - bevel_pgdata:/var/lib/postgresql
     networks:
       - backend_network
+
+# redis
+  redis:
+      image: redis:latest
+      container_name: redis_local
+      restart: always
+      ports:
+        - "6379:6379"
+      volumes:
+        # Persist data to a named volume on the host
+        - redis_data:/data
+      environment:
+      # Enable AOF persistence
+      - REDIS_ARGS=--appendonly yes
+      networks:
+        - backend_network
 
 volumes:
   bevel_esdata:
   bevel_pgdata:
+  redis_data:
+    driver: local
 
 networks:
   backend_network:

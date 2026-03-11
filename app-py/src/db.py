@@ -1,14 +1,18 @@
 import os
+from dotenv import load_dotenv
 import asyncpg
 from typing import Optional
 
+# Load environment variables from .env file
+load_dotenv()
+
 # Database configuration with environment variables and defaults
 DB_CONFIG = {
-    'host': os.getenv('POSTGRES_HOST', 'localhost'),
-    'port': int(os.getenv('POSTGRES_PORT', '54328')),
-    'user': os.getenv('POSTGRES_USER', 'bevel'),
-    'password': os.getenv('POSTGRES_PASSWORD', 'password'),
-    'database': os.getenv('POSTGRES_DB', 'bevel'),
+    'host': os.getenv('PG_HOST', 'localhost'),
+    'port': int(os.getenv('PG_PORT', '54328')),
+    'user': os.getenv('PG_USER', 'bevel'),
+    'password': os.getenv('PG_PASSWORD', 'password'),
+    'database': os.getenv('PG_DB', 'bevel'),
 }
 
 # Global connection pool
