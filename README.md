@@ -1,6 +1,6 @@
 # FastAPI for search
 
-Welcome to the **Backend Take-Home** assignment repository! This README describes how to install and run Docker so that you can spin up the necessary services (e.g., PostgreSQL, Elasticsearch, and others) for this project. This template contains boilerplate servers in both TypeScript (Express.js) and Python (FastAPI) that demonstrate how to connect to the services.
+This README describes how to install and run Docker so that you can spin up the necessary services (e.g., PostgreSQL, Elasticsearch, and others) for this project.
 
 ## 1. Install Docker
 
