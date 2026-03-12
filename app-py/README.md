@@ -55,7 +55,7 @@ Carbohydrate, by difference -> carbs
 ### 'food' table is synced real time to Elasticsearch index 'food' via pgsync.
 create_db_tables.py
 
-### The csv files are assumed to have been downloaded in /data directory (a cron job that will connect to an ftp server would be suited for the task). Existing data in the tables is replaced.
+### The csv data files are assumed to have been downloaded from https://fdc.nal.usda.gov/download-datasets in /data directory (a cron job that will connect to an ftp server would be suited for the task). Existing data in the tables is replaced.
 data_load.py
 
 ### Use pgsync to create the index in Elasticsearch based on schema.json and the db table triggers (executing from app-py directory):
@@ -127,7 +127,7 @@ pytest
 ## Project Structure
 
 ```
-data # directory with csv files to load
+data # directory with csv data files downloaded from https://fdc.nal.usda.gov/download-datasets to load
 app-py/
 ├── src/
 │   ├── __init__.py
