@@ -1,6 +1,4 @@
-# Python FastAPI app for search
-
-This is a Python/FastAPI app.
+# Python FastAPI app for text search in elasticsearch based on data in PostgreSQL
 
 ## Requirements
 
