@@ -148,12 +148,3 @@ You can also check running volumes with:
 docker volume ls
 ```
 and terminate any hanging volumes that match the name of the volume in the docker-compose.yml file.
-
-# Mapping nutrient -> nutrient category
-
-Based on https://fdc.nal.usda.gov/Foundation_Foods_Documentation
-
-Energy (Atwater Specific Factors) -> calories (more accurate than Energy (Atwater General Factors))
-Adjusted Protein -> protein (indicated by the % Daily Value on labels)
-Total fat -> fat
-Carbohydrate -> carbs
