@@ -1,6 +1,6 @@
 # FastAPI for search
 
-This README describes how to install and run Docker so that you can spin up the necessary services (e.g., PostgreSQL, Elasticsearch, and others) for this project.
+This README describes how to install and run Docker so that you can spin up the necessary services (e.g., PostgreSQL, Elasticsearch, and others).
 
 ## 1. Install Docker
 
@@ -78,49 +78,14 @@ to stop and remove the containers.
 - [Official Docker Documentation](https://docs.docker.com/)
 - [Docker Compose Overview](https://docs.docker.com/compose/)
 
-You should now be ready to run Docker services for this take-home assignment. If you have any questions or run into issues, let us know!
-
-# Backend Setup
-
-Two boilerplate implementations are provided for the backend take-home assessment. Choose the language you're most comfortable with:
-
-## Option 1: TypeScript/Node.js (app-ts)
-An Express.js server implementation with TypeScript. See `/app-ts/README.md` for setup instructions.
-
-## Option 2: Python (app-py)
-A FastAPI server implementation with Python. See `/app-py/README.md` for setup instructions.
-
-Both implementations provide identical functionality:
+## Python (app-py)
+A FastAPI server implementation with Python. See `/app-py/README.md` for setup instructions:
 - PostgreSQL database connection
 - Elasticsearch client integration
 - Health check endpoints
 - Example search endpoint
 
----
-
-## TypeScript Setup (app-ts)
-
-## Install global dependencies
-
-```
-npm install -g yarn
-```
-
-## Install local dependencies
-
-```
-yarn install
-```
-
-## Run the server
-
-```
-yarn dev
-```
-
----
-
-## Python Setup (app-py)
+## Setup (app-py)
 
 ### Create virtual environment
 
@@ -170,7 +135,7 @@ If you see an error similar to
 ```
 {"error":"role \"myuser\" does not exist"} 
 ``` 
-when running the db health check, then it could be because the postgres container is colliding with an existing process that is using the same port. The db port is set to `54328` in the docker-compose.yml file. You can change the port in the file to something else, but make sure to update the port in your application configuration (db.ts for TypeScript or db.py for Python) as well.
+when running the db health check, then it could be because the postgres container is colliding with an existing process that is using the same port. The db port is set to `54328` in the docker-compose.yml file. You can change the port in the file to something else, but make sure to update the port in your application configuration (db.py) as well.
 
 When restarting the postgres container for debugging, you may need to force delete the volume as well, which is where the data is stored. You can do this by running:
 
@@ -190,5 +155,5 @@ Based on https://fdc.nal.usda.gov/Foundation_Foods_Documentation
 
 Energy (Atwater Specific Factors) -> calories (more accurate than Energy (Atwater General Factors))
 Adjusted Protein -> protein (indicated by the % Daily Value on labels)
-Total fat (NLEA) -> fat
-Carbohydrate, by summation -> carbs (more accurate then Carbohydrate, by difference)
+Total fat -> fat
+Carbohydrate -> carbs
