@@ -4,7 +4,7 @@ This is a Python/FastAPI app.
 
 ## Requirements
 
-- Python 3.9+
+- Python 3.13+
 - pip or pipenv
 
 ## Setup
